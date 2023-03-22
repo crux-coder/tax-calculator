@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@mui/styles';
 import {
     Accordion,
     AccordionSummary,
@@ -12,10 +12,10 @@ import {
     InputAdornment,
     Button,
     Tooltip,
-} from '@material-ui/core';
+} from '@mui/material';
 
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import useTaxCalculator from 'hooks/useTaxCalculator';
 import { useNumberFormat } from "hooks/useNumberFormat";
 
@@ -101,7 +101,7 @@ const Calculator = ({ phrases }) => {
     return (
         <>
             <form className={classes.brutoForm} onSubmit={onFormSubmit}>
-                <FormControl fullWidth className={classes.brutoFormControl} variant="outlined">
+                <FormControl sx={{width:'60%', margin:' 0 0 20px 0'}}fullWidth className={classes.brutoFormControl} variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-amount">{phrases.gross}</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
@@ -109,7 +109,6 @@ const Calculator = ({ phrases }) => {
                         onChange={onBrutoChange}
                         onFocus={handleFocus}
                         endAdornment={<InputAdornment position="end">KM</InputAdornment>}
-                        labelWidth={40}
                     />
                 </FormControl>
                 <Button onClick={calculateTaxes} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>

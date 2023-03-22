@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 import {
     Grid,
-} from '@material-ui/core';
+} from '@mui/material';
 import MainAppbar from 'components/MainAppbar';
 import Calculator from 'components/Calculator';
 import Blog from './Blog';
 import {
     BrowserRouter as Router,
-    Switch,
+    Routes,
     Route,
 } from "react-router-dom";
 
@@ -48,23 +48,17 @@ const Main = ({ changeTheme, theme, phrases, language, changeLanguage }) => {
                 </Grid>
 
                 <Grid className={classes.content} item xs={12}>
-                    <Switch>
-                        <Route path={ROUTES.CALCULATOR}>
-                            <Calculator
-                                phrases={phrases}
-                            />
-                        </Route>
+                    <Routes>
+                        <Route path={ROUTES.CALCULATOR}
+                            element={<Calculator phrases={phrases} />} />
 
-                        <Route path={ROUTES.BLOG}>
-                            <Blog />
-                        </Route>
 
-                        <Route path={ROUTES.HOME}>
-                            <Calculator
-                                phrases={phrases}
-                            />
-                        </Route>
-                    </Switch>
+                        <Route path={ROUTES.BLOG} element={<Blog />} />
+
+
+                        <Route path={ROUTES.HOME}
+                            element={<Calculator phrases={phrases} />} />
+                    </Routes>
                 </Grid>
             </Grid>
         </Router>

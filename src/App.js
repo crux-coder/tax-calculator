@@ -79,6 +79,8 @@ function App() {
     setLanguage(lang);
   };
 
+  document.title = phrases.title;
+
   return (
     <div className="App">
       <ThemeProvider theme={theme}>

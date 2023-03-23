@@ -83,7 +83,7 @@ export default function MainAppbar({ changeTheme, theme, phrases, language, chan
                 onKeyDown={toggleDrawer}
             >
                 <List disablePadding>
-                    <ListItem component={Link} to={ROUTES.HOME} button key={phrases.calculator}>
+                    <ListItem component={Link} to={ROUTES.HOME} button key={phrases.home}>
                         <ListItemIcon><HomeIcon /></ListItemIcon>
                         <ListItemText primary={phrases.home} />
                     </ListItem>

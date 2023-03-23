@@ -100,8 +100,8 @@ const Calculator = ({ phrases }) => {
 
     return (
         <>
-            <form className={classes.brutoForm} onSubmit={onFormSubmit}>
-                <FormControl sx={{width:'60%', margin:' 0 0 20px 0'}}fullWidth className={classes.brutoFormControl} variant="outlined">
+            <form className={classes.brutoForm} >
+                <FormControl fullWidth sx={{ m: 5, width: '60%' }} onSubmit={onFormSubmit}>
                     <InputLabel htmlFor="outlined-adornment-amount">{phrases.gross}</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
@@ -109,6 +109,7 @@ const Calculator = ({ phrases }) => {
                         onChange={onBrutoChange}
                         onFocus={handleFocus}
                         endAdornment={<InputAdornment position="end">KM</InputAdornment>}
+                        label={phrases.gross}
                     />
                 </FormControl>
                 <Button onClick={calculateTaxes} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>

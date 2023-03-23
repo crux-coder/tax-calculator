@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/styles';
 
 import {
     AppBar,
@@ -17,15 +17,15 @@ import {
     FormControl,
     Select,
     MenuItem
-} from '@material-ui/core';
+} from '@mui/material';
 
-import Brightness4Icon from '@material-ui/icons/Brightness4';
-import Brightness7Icon from '@material-ui/icons/Brightness7';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 
-import MenuIcon from '@material-ui/icons/Menu';
-import AnnouncementIcon from '@material-ui/icons/Announcement';
-import KeyboardIcon from '@material-ui/icons/Keyboard';
-import HomeIcon from '@material-ui/icons/Home';
+import MenuIcon from '@mui/icons-material/Menu';
+import AnnouncementIcon from '@mui/icons-material/Announcement';
+import KeyboardIcon from '@mui/icons-material/Keyboard';
+import HomeIcon from '@mui/icons-material/Home';
 
 import { ROUTES } from '../constants';
 
@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function MainAppbar({ changeTheme, theme, phrases, language, changeLanguage }) {
     const classes = useStyles();
-
+    
     const [drawerOpen, setDrawerOpen] = useState(false);
 
     const toggleDrawer = () => {
@@ -124,8 +124,8 @@ export default function MainAppbar({ changeTheme, theme, phrases, language, chan
                             <MenuItem value={'en'}>English</MenuItem>
                         </Select>
                     </FormControl>
-                    <IconButton onClick={changeTheme} edge="start" color="inherit" aria-label="menu">
-                        {theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
+                    <IconButton sx={{margin:'0 0 0 20px'}} onClick={changeTheme} edge="start" color="inherit" aria-label="menu">
+                        { theme === 'dark' ? <Brightness7Icon /> : <Brightness4Icon /> }
                     </IconButton>
                 </Toolbar>
             </AppBar>

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import 'App.css';
 
 import Main from 'views/Main';
 import usePhrases from 'hooks/usePhrases';
 
-const darkTheme = createMuiTheme({
+const darkTheme = createTheme({
   palette: {
-    type: 'dark',
+    mode: 'dark',
     primary: {
       main: '#3185FC',
       contrastText: '#ffffff',
@@ -35,9 +35,9 @@ const darkTheme = createMuiTheme({
   },
 });
 
-const lightTheme = createMuiTheme({
+const lightTheme = createTheme({
   palette: {
-    type: 'light',
+    mode: 'light',
     primary: {
       main: '#3185FC',
       contrastText: '#ffffff',
@@ -69,7 +69,7 @@ function App() {
   const [theme, setTheme] = useState(darkTheme);
 
   const toggleTheme = () => {
-    if (theme.palette.type === 'dark') setTheme(lightTheme);
+    if (theme.palette.mode === 'dark') setTheme(lightTheme);
     else setTheme(darkTheme);
   }
 
@@ -83,7 +83,7 @@ function App() {
     <div className="App">
       <ThemeProvider theme={theme}>
         <Main
-          theme={theme.palette.type}
+          theme={theme.palette.mode}
           changeTheme={toggleTheme}
           phrases={phrases}
           language={language}

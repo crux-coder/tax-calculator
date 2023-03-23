@@ -37,7 +37,7 @@ const Main = ({ changeTheme, theme, phrases, language, changeLanguage }) => {
 
     return (
         <Router>
-            <Grid container className={classes.main}>
+            <Grid container className={classes.main} justifyContent="center">
                 <Grid item xs={12}>
                     <MainAppbar
                         theme={theme}

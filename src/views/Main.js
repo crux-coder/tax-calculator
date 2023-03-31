@@ -14,6 +14,7 @@ import {
 } from "react-router-dom";
 
 import { ROUTES } from '../constants';
+import Canvas from 'components/Canvas';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,12 +53,13 @@ const Main = ({ changeTheme, theme, phrases, language, changeLanguage }) => {
                         <Route path={ROUTES.CALCULATOR}
                             element={<Calculator phrases={phrases} />} />
 
-
                         <Route path={ROUTES.BLOG} element={<Blog />} />
-
 
                         <Route path={ROUTES.HOME}
                             element={<Calculator phrases={phrases} />} />
+                        
+                        <Route path={ROUTES.DEPOSITSLIP}
+                            element={<Canvas phrases={"UPLATNICA"} />} />
                     </Routes>
                 </Grid>
             </Grid>

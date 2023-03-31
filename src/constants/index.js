@@ -1,5 +1,6 @@
 export const ROUTES = {
     HOME: '/',
     BLOG: '/blog',
-    CALCULATOR: '/calculator'
+    CALCULATOR: '/calculator',
+    DEPOSITSLIP: '/depositslip'
 };

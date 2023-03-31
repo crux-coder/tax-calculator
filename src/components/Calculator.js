@@ -18,6 +18,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import useTaxCalculator from 'hooks/useTaxCalculator';
 import { useNumberFormat } from "hooks/useNumberFormat";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -202,6 +203,7 @@ const Calculator = ({ phrases }) => {
                         <Typography className={classes.secondaryHeading}>{taxCalculations.total ? formatNumberOutput((taxCalculations.total).toFixed(2)) : 0.00} KM</Typography>
                     </AccordionSummary>
                 </Accordion>
+                <Link to={'/depositslip'}> UPLATNICA </Link>
             </div>
         </>
     );

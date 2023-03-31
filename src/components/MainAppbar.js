@@ -118,7 +118,6 @@ export default function MainAppbar({ changeTheme, theme, phrases, language, chan
                             id="demo-simple-select-outlined"
                             value={language}
                             onChange={handleChangeLanguage}
-                            dense
                         >
                             <MenuItem value={'bh'}>Bosanski</MenuItem>
                             <MenuItem value={'en'}>English</MenuItem>

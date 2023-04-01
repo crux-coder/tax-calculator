@@ -12,6 +12,7 @@ import {
     InputAdornment,
     Button,
     Tooltip,
+    Box,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -99,10 +100,14 @@ const Calculator = ({ phrases }) => {
         calculateTaxes();
     }
 
+    const onCalculateButtonClick = ()=>{
+        calculateTaxes();
+    }
+
     return (
         <>
-            <form className={classes.brutoForm} >
-                <FormControl fullWidth sx={{ m: 5, width: '60%' }} onSubmit={onFormSubmit}>
+            <form className={classes.brutoForm} onSubmit={onFormSubmit}>
+                <FormControl fullWidth sx={{ m: 5, width: '60%' }} >
                     <InputLabel htmlFor="outlined-adornment-amount">{phrases.gross}</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
@@ -113,7 +118,7 @@ const Calculator = ({ phrases }) => {
                         label={phrases.gross}
                     />
                 </FormControl>
-                <Button onClick={calculateTaxes} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>
+                <Button onClick={onCalculateButtonClick} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>
             </form>
             <div className={classes.root}>
                 <Accordion expanded={false} onChange={() => false}>
@@ -203,7 +208,9 @@ const Calculator = ({ phrases }) => {
                         <Typography className={classes.secondaryHeading}>{taxCalculations.total ? formatNumberOutput((taxCalculations.total).toFixed(2)) : 0.00} KM</Typography>
                     </AccordionSummary>
                 </Accordion>
-                <Link to={'/depositslip'}> UPLATNICA </Link>
+                {taxCalculations.bruto > 0  ? <Box textAlign='center'>
+                    <Button variant="outlined" component={Link} to={'/depositslip'} sx={{ m: '5px' }}>UPLATNICA</Button>
+                </Box> : <Box></Box>}
             </div>
         </>
     );

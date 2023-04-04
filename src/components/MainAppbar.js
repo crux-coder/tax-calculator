@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     toolbar: theme.mixins.toolbar,
     logo: {
         height: theme.spacing(6),
+        marginLeft:'10px'
     }
 }));
 
@@ -110,7 +111,7 @@ export default function MainAppbar({ changeTheme, theme, phrases, language, chan
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="button" component={Link} to={ROUTES.HOME} align="left" className={classes.title}>
-                        <img className={classes.logo} src={logo} alt="da fuq" />
+                        <img className={classes.logo} src={logo} alt="logo" />
                     </Typography>
                     <FormControl variant="outlined" margin="dense" className={classes.languageSelect}>
                         <Select
@@ -118,7 +119,6 @@ export default function MainAppbar({ changeTheme, theme, phrases, language, chan
                             id="demo-simple-select-outlined"
                             value={language}
                             onChange={handleChangeLanguage}
-                            dense
                         >
                             <MenuItem value={'bh'}>Bosanski</MenuItem>
                             <MenuItem value={'en'}>English</MenuItem>

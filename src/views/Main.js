@@ -15,7 +15,6 @@ import {
 
 import { ROUTES } from '../constants';
 
-
 const useStyles = makeStyles((theme) => ({
     main: {
         flexGrow: 1,
@@ -52,12 +51,11 @@ const Main = ({ changeTheme, theme, phrases, language, changeLanguage }) => {
                         <Route path={ROUTES.CALCULATOR}
                             element={<Calculator phrases={phrases} />} />
 
-
                         <Route path={ROUTES.BLOG} element={<Blog />} />
-
 
                         <Route path={ROUTES.HOME}
                             element={<Calculator phrases={phrases} />} />
+                        
                     </Routes>
                 </Grid>
             </Grid>

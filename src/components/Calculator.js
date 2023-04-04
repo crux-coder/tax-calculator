@@ -17,7 +17,9 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import useTaxCalculator from 'hooks/useTaxCalculator';
+import Canvas from './Canvas';
 import { useNumberFormat } from "hooks/useNumberFormat";
+
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -98,10 +100,14 @@ const Calculator = ({ phrases }) => {
         calculateTaxes();
     }
 
+    const onCalculateButtonClick = ()=>{
+        calculateTaxes();
+    }
+
     return (
         <>
-            <form className={classes.brutoForm} >
-                <FormControl fullWidth sx={{ m: 5, width: '60%' }} onSubmit={onFormSubmit}>
+            <form className={classes.brutoForm} onSubmit={onFormSubmit}>
+                <FormControl fullWidth sx={{ m: 5, width: '60%' }} >
                     <InputLabel htmlFor="outlined-adornment-amount">{phrases.gross}</InputLabel>
                     <OutlinedInput
                         id="outlined-adornment-amount"
@@ -112,7 +118,7 @@ const Calculator = ({ phrases }) => {
                         label={phrases.gross}
                     />
                 </FormControl>
-                <Button onClick={calculateTaxes} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>
+                <Button onClick={onCalculateButtonClick} className={classes.calculateBtn} size="large" variant="contained" color="primary">{phrases.calculate}!</Button>
             </form>
             <div className={classes.root}>
                 <Accordion expanded={false} onChange={() => false}>
@@ -148,7 +154,7 @@ const Calculator = ({ phrases }) => {
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-
+                    <Canvas user = {{name:'John Doe'}}></Canvas>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={expanded === 'fond'} onChange={handleChange('fond')}>

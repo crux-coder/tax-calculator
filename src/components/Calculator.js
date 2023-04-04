@@ -12,14 +12,14 @@ import {
     InputAdornment,
     Button,
     Tooltip,
-    Box,
 } from '@mui/material';
 
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import useTaxCalculator from 'hooks/useTaxCalculator';
+import Canvas from './Canvas';
 import { useNumberFormat } from "hooks/useNumberFormat";
-import { Link } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
     main: {
@@ -154,7 +154,7 @@ const Calculator = ({ phrases }) => {
                         </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-
+                    <Canvas user = {{name:'John Doe'}}></Canvas>
                     </AccordionDetails>
                 </Accordion>
                 <Accordion expanded={expanded === 'fond'} onChange={handleChange('fond')}>
@@ -208,9 +208,6 @@ const Calculator = ({ phrases }) => {
                         <Typography className={classes.secondaryHeading}>{taxCalculations.total ? formatNumberOutput((taxCalculations.total).toFixed(2)) : 0.00} KM</Typography>
                     </AccordionSummary>
                 </Accordion>
-                {taxCalculations.bruto > 0  ? <Box textAlign='center'>
-                    <Button variant="outlined" component={Link} to={'/depositslip'} sx={{ m: '5px' }}>UPLATNICA</Button>
-                </Box> : <Box></Box>}
             </div>
         </>
     );
